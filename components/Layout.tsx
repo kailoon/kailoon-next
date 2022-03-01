@@ -30,7 +30,7 @@ const Layout = ({
       <div className="flex md:w-20 md:sticky md:top-0 md:left-0 md:border-r md:h-screen md:flex-col md:justify-between dark:border-gray-800">
         <Link href="/">
           <a title="Welcome to my humble site">
-            <Logo className="text-black transform scale-75 hidden md:block mx-auto h-96 dark:text-white" />
+            <Logo className="text-black transform scale-75 hidden md:block mx-auto h-96 dark:text-white pt-10" />
           </a>
         </Link>
         <Navbar />
