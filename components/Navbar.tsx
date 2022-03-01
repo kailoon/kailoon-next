@@ -20,11 +20,11 @@ const Navbar = () => {
   if (isLoading) return <Spinner />
 
   return (
-    <nav className="flex justify-around items-center bg-black fixed bottom-0 py-4 px-3 text-sm font-medium tracking tight text-gray-200 w-full md:bg-transparent md:flex-col md:relative md:space-y-4 dark:bg-teal-300 dark:text-teal-900">
+    <nav className="flex justify-around items-center bg-black fixed bottom-0 py-4 px-3 text-sm font-medium tracking tight text-gray-200 w-full md:bg-transparent md:flex-col md:relative md:space-y-4 dark:bg-teal-300 dark:text-teal-900 z-50">
       {pages?.map(({ iconImage, title, slug }) => (
         <div
           key={title}
-          className={`animate-fade rounded-xl p-2 flex items-center justify-center ${
+          className={`rounded-xl p-2 flex leading-none w-auto items-center justify-center ${
             currentPath === slug.current ? 'md:bg-teal-100' : 'dark:md:invert'
           }`}
         >
@@ -36,9 +36,9 @@ const Navbar = () => {
               <Tooltip content={title}>
                 <Image
                   alt={title}
-                  width={800}
-                  height={600}
-                  layout="responsive"
+                  width={24}
+                  height={24}
+                  layout="fixed"
                   src={urlFor(iconImage).width(24).url()}
                   className="hidden md:block"
                 />

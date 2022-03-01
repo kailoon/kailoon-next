@@ -2,6 +2,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
+    dangerouslyAllowSVG: true,
     domains: ['cdn.sanity.io'],
   },
 }

@@ -34,9 +34,7 @@ const Layout = ({
           </a>
         </Link>
         <Navbar />
-        <div className="hidden md:flex justify-center items-end h-96 pb-8">
-          {/* <MoonIcon className="w-6 h-6" /> */}
-        </div>
+        <div className="hidden md:flex justify-center items-end h-96 pb-8"></div>
       </div>
       <div className="mx-auto max-w-3xl">
         {coverImage && (
