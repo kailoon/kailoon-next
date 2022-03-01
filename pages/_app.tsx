@@ -53,6 +53,40 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           site: '@kailoon',
           cardType: 'summary_large_image',
         }}
+        additionalLinkTags={[
+          {
+            rel: 'icon',
+            href: '/static/images/favicon.svg',
+            type: 'image/svg+xml',
+          },
+          {
+            rel: 'apple-touch-icon',
+            href: '/static/images/apple-touch-icon.png',
+            sizes: '180x180',
+            type: 'image/png',
+          },
+          {
+            rel: 'icon',
+            href: '/static/images/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            rel: 'icon',
+            href: '/static/images/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            rel: 'mask-icon',
+            href: '/static/images/safari-pinned-tab.svg',
+            color: '#5bbad5',
+          },
+          {
+            rel: 'manifest',
+            href: '/static/site.manifest',
+          },
+        ]}
       />
       <Component {...pageProps} />
     </SWRConfig>

@@ -46,7 +46,7 @@ const UserCard = () => {
             <a title="avatar logo">
               <Image
                 priority={true}
-                src="/avatar.jpeg"
+                src="/static/images/avatar.jpeg"
                 alt="Kailoon"
                 width={100}
                 height={100}
