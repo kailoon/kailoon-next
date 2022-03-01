@@ -28,7 +28,7 @@ const LatestProjects = () => {
               className="flex cursor-pointer items-center justify-between space-x-2 border-b py-4 text-sm last-of-type:border-0 hover:opacity-75 dark:border-gray-800"
             >
               <div>
-                <h5 className="font-medium">{title}</h5>
+                <strong className="font-medium">{title}</strong>
                 <p className="text-xs text-gray-600 dark:text-teal-300">
                   {services.length === 1 && <>{services[0].title}</>}
                   {services.length === 2 && (
