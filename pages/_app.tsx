@@ -84,7 +84,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           },
           {
             rel: 'manifest',
-            href: '/static/site.manifest',
+            href: '/static/site.webmanifest',
           },
         ]}
       />
