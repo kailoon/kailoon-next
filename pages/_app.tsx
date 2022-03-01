@@ -28,6 +28,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     >
       {/* Google Tag Manager - Global base code */}
       <Script
+        id="google-tag-manager-script"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `

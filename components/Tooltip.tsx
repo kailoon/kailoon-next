@@ -1,4 +1,5 @@
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
+import { getDisplayName } from 'next/dist/shared/lib/utils'
 import React from 'react'
 
 interface Props extends TooltipPrimitive.TooltipProps {
@@ -56,5 +57,7 @@ const Tooltip = React.forwardRef(
     )
   }
 )
+
+Tooltip.displayName = 'Tooltip'
 
 export default Tooltip

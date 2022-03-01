@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { urlFor } from '../client'
 import { Project } from '../types'
@@ -29,7 +30,10 @@ const ProjectsGallery = () => {
               className="block leading-none no-underline text-black font-sans not-italic hover:text-black hover:opacity-75 transition-opacity ease-in-out duration-200 dark:text-white dark:hover:text-teal-200"
               title={project.title}
             >
-              <img
+              <Image
+                width={800}
+                height={600}
+                layout="responsive"
                 src={urlFor(project.coverImage).url()}
                 alt={project.title}
                 // className="rounded-lg"

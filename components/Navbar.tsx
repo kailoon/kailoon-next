@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { urlFor } from '../client'
@@ -33,7 +34,11 @@ const Navbar = () => {
               passHref
             >
               <Tooltip content={title}>
-                <img
+                <Image
+                  alt={title}
+                  width={800}
+                  height={600}
+                  layout="responsive"
                   src={urlFor(iconImage).width(24).url()}
                   className="hidden md:block"
                 />

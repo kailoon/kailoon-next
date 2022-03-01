@@ -6,6 +6,7 @@ import Footer from './Footer'
 import { MoonIcon } from '@heroicons/react/outline'
 import Logo from './Logo'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Props {
   children: React.ReactNode
@@ -39,9 +40,12 @@ const Layout = ({
       </div>
       <div className="mx-auto max-w-3xl">
         {coverImage && (
-          <img
+          <Image
             src={coverImage}
             alt="Cover Image"
+            layout="responsive"
+            width={800}
+            height={600}
             className="w-full max-h-92 object-cover rounded-none rounded-b-3xl"
           />
         )}

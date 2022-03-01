@@ -3,6 +3,7 @@ import kwesforms from 'kwesforms'
 import { useEffect } from 'react'
 
 const contact = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     kwesforms.init()
   }, [])

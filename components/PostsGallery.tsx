@@ -34,6 +34,7 @@ const PostsGallery = () => {
               {post.mainImage && (
                 <div className="w-32 h-auto">
                   <Image
+                    alt={post.title}
                     src={urlFor(post.mainImage).url()}
                     layout="responsive"
                     width={800}
