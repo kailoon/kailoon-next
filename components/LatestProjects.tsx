@@ -2,7 +2,6 @@ import { ArrowSmRightIcon, BriefcaseIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 import type { Project } from '../types'
 import { useLatestProjects } from '../utils/hooks'
-import Spinner from './Spinner'
 
 const LatestProjects = () => {
   const {

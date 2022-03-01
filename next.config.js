@@ -5,4 +5,5 @@ module.exports = {
     dangerouslyAllowSVG: true,
     domains: ['cdn.sanity.io'],
   },
+  swcMinify: true,
 }

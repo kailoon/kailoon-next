@@ -3,7 +3,6 @@ import { Author } from '../types'
 import { useAuthor } from '../utils/hooks'
 import Footer from './Footer'
 import LatestProjects from './LatestProjects'
-import Spinner from './Spinner'
 import UserCard from './UserCard'
 
 const Aside = () => {

@@ -5,7 +5,6 @@ import { Author } from '../types'
 import Dialog from './Dialog'
 import { useEffect, useState } from 'react'
 import { useAuthor } from '../utils/hooks'
-import Spinner from './Spinner'
 
 const UserCard = () => {
   const [open, setOpen] = useState(false)

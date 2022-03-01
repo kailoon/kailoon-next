@@ -51,7 +51,7 @@ const ProjectsGallery = () => {
                 // className="rounded-lg"
               />
               <div className="py-2">
-                <h4 className="text-base inline">{project.title}</h4>{' '}
+                <h3 className="text-base inline">{project.title}</h3>{' '}
                 <span className="text-sm text-gray-600 font-normal dark:text-gray-400">
                   &mdash; {project.description}
                 </span>

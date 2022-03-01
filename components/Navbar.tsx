@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import { urlFor } from '../client'
 import { Page } from '../types'
 import { usePages } from '../utils/hooks'
-import Spinner from './Spinner'
 import Tooltip from './Tooltip'
 
 const Navbar = () => {

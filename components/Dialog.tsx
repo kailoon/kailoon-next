@@ -10,7 +10,6 @@ const Dialog = ({ closeDialog }: { closeDialog: () => void }) => {
     error,
   }: { author: Author; isLoading: boolean; error: Error } = useAuthor()
 
-  if (isLoading) return <Spinner />
   if (error) return <p>{error.message}</p>
   return (
     <div
