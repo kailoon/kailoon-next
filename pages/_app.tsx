@@ -5,18 +5,19 @@ import { DefaultSeo } from 'next-seo'
 import { sanity } from '../client'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-
-import { GTM_ID, pageview } from '../lib/analytic'
+import * as gtag from '../lib/analytic'
 import Script from 'next/script'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const fetcher = (query: string) => sanity.fetch(query)
   const router = useRouter()
-
   useEffect(() => {
-    router.events.on('routeChangeComplete', pageview)
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
-      router.events.off('routeChangeComplete', pageview)
+      router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
 
@@ -28,15 +29,20 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     >
       {/* Google Tag Manager - Global base code */}
       <Script
-        id="google-tag-manager-script"
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+      />
+      <Script
+        id="gtag-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer', '${GTM_ID}');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
           `,
         }}
       />
@@ -53,6 +59,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           site: '@kailoon',
           cardType: 'summary_large_image',
         }}
+        additionalMetaTags={[
+          {
+            name: 'theme-color',
+            content: '#ffffff',
+          },
+          {
+            name: 'mask-icon',
+            content: 'safari-pinned-tab',
+          },
+        ]}
         additionalLinkTags={[
           {
             rel: 'icon',
