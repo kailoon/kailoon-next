@@ -1,12 +1,14 @@
 import { NextSeo } from 'next-seo'
-import Layout from '../components/Layout'
-import { sanity, urlFor } from '../client'
+import Layout from '../../components/Layout'
+import { sanity, urlFor } from '../../client'
 import { PortableText } from '@portabletext/react'
-import { Page } from '../types'
+import { Page } from '../../types'
 import groq from 'groq'
-import { GetStaticProps } from 'next'
+import type { GetStaticPaths, GetStaticProps } from 'next'
+import ProjectsGallery from '../../components/ProjectsGallery'
+import PostsGallery from '../../components/PostsGallery'
 
-const Home = ({ page }: { page: Page }) => {
+const Page = ({ page }: { page: Page }) => {
   return (
     <Layout h1={page.heroTextOne} h2={page.heroTextTwo}>
       <NextSeo
@@ -34,36 +36,41 @@ const Home = ({ page }: { page: Page }) => {
           cardType: 'summary_large_image', //twitter:card
         }}
       />
-      <article className="animate-fade">
+      <article>
         <PortableText value={page.body} />
+        {page.slug.current === 'projects' && <ProjectsGallery />}
+        {page.slug.current === 'writings' && <PostsGallery />}
       </article>
     </Layout>
   )
 }
 
-export default Home
+export default Page
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const query = groq`*[_type == "page" && title != "Contact"]{slug}`
+  const pages = await sanity.fetch(query)
+  const paths = pages.map((page: { slug: { current: string } }) => ({
+    params: { slug: page.slug.current },
+  }))
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug = '' } = params as { slug?: string }
+
   const page = await sanity.fetch(
     groq`
-  *[_type == "page" && slug.current == $slug][0]{
-  title,
-  body,
-  heroTextOne,
-  heroTextTwo,
-  seoTitle,
-  seoDescription,
-  seoImage,
-  seoKeywords,
-}`,
-    { slug: 'home' }
-  )
-
-  if (!page) {
-    return {
-      notFound: true,
+    *[_type == "page" && slug.current == $slug][0]
+  `,
+    {
+      slug,
     }
-  }
+  )
 
   return {
     props: {

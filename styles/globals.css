@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  article {
+    @apply mt-6 md:text-xl text-base;
+  }
+  article > p {
+    @apply mt-6 font-serif dark:text-gray-300;
+  }
+  article h3 {
+    @apply mt-6 text-xl font-bold tracking-tight text-black md:text-2xl dark:text-white;
+  }
+  article ul,
+  article ol {
+    @apply mt-6 ml-8  marker:text-base marker:font-medium marker:text-gray-600;
+  }
+  article li {
+    @apply mb-2 font-serif;
+  }
+  article ul {
+    @apply list-disc;
+  }
+
+  article hr {
+    @apply my-6;
+  }
+  article strong {
+    @apply text-black italic dark:text-white;
+  }
+  article ol {
+    @apply list-decimal;
+  }
+  article a,
+  footer a {
+    @apply text-red-600 dark:text-teal-400 underline italic font-bold transition-colors duration-200 ease-in-out font-serif;
+  }
+  article a:hover,
+  footer a:hover {
+    @apply text-teal-200;
+  }
+
+  blockquote {
+    @apply py-8 font-serif italic text-gray-700 md:py-8 mt-6 border-y text-3xl md:text-4xl dark:text-teal-300 dark:border-gray-800;
+  }
+
+  .arrow {
+    @apply absolute left-5 bottom-full h-0 w-0 border-l-8 border-b-8 border-r-8 border-l-transparent border-b-teal-200 border-r-transparent;
+  }
+  img {
+    @apply object-cover w-full rounded-lg;
+  }
+  label {
+    @apply text-sm font-medium text-gray-700 dark:text-gray-300 block;
+  }
+  input[type='text'],
+  input[type='email'],
+  select,
+  option,
+  textarea {
+    @apply border bg-gray-100 border-gray-300 dark:border-gray-800 focus:border-teal-400 focus:outline-none w-full rounded-md;
+  }
+  .kw-field-error-message {
+    @apply text-sm;
+  }
+}
