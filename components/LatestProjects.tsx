@@ -12,7 +12,6 @@ const LatestProjects = () => {
   }: { projects: Project[]; isLoading: boolean; error: Error } =
     useLatestProjects()
 
-  if (isLoading) return <Spinner />
   if (error) return <p>{error.message}</p>
 
   return (

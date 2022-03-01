@@ -14,8 +14,7 @@ const Aside = () => {
     error,
   }: { author: Author; isLoading: boolean; error: Error } = useAuthor()
 
-  if (isLoading) return <Spinner />
-  if (error) return <p>{error.message}</p>
+  if (isLoading) return <div className="h-12 w-64"></div>
 
   return (
     <aside className="sticky top-0 hidden h-screen w-72 flex-col justify-between pt-10 pb-4 lg:flex pr-8">

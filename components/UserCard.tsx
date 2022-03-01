@@ -36,7 +36,7 @@ const UserCard = () => {
     setOpen(false)
   }
 
-  if (isLoading) return <Spinner />
+  if (isLoading) return <div className="grid place-items-center h-12"></div>
   if (error) return <p>{error.message}</p>
 
   return (
@@ -46,6 +46,7 @@ const UserCard = () => {
           <Link href="/">
             <a title="avatar logo">
               <Image
+                priority={true}
                 src="/avatar.jpeg"
                 alt="Kailoon"
                 width={100}

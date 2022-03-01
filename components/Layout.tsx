@@ -3,7 +3,7 @@ import Header from './Header'
 import Hero from './Hero'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import { MoonIcon } from '@heroicons/react/outline'
+
 import Logo from './Logo'
 import Link from 'next/link'
 import Image from 'next/image'

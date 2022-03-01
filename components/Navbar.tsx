@@ -17,7 +17,7 @@ const Navbar = () => {
   const currentPath = router.asPath.split('/')[1]
 
   if (error) return <p>{error.message}</p>
-  if (isLoading) return <Spinner />
+  if (isLoading) return <div className="grid place-items-center md:w-20"></div>
 
   return (
     <nav className="flex justify-around items-center bg-black fixed bottom-0 py-4 px-3 text-sm font-medium tracking tight text-gray-200 w-full md:bg-transparent md:flex-col md:relative md:space-y-4 dark:bg-teal-300 dark:text-teal-900 z-50">
@@ -34,14 +34,16 @@ const Navbar = () => {
               passHref
             >
               <Tooltip content={title}>
-                <Image
-                  alt={title}
-                  width={24}
-                  height={24}
-                  layout="fixed"
-                  src={urlFor(iconImage).width(24).url()}
-                  className="hidden md:block"
-                />
+                <div className="hidden md:block">
+                  <Image
+                    alt={title}
+                    width={24}
+                    height={24}
+                    layout="fixed"
+                    src={urlFor(iconImage).width(24).url()}
+                    className="hidden md:block"
+                  />
+                </div>
               </Tooltip>
             </Link>
           )}
