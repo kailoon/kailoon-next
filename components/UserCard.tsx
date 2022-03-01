@@ -41,7 +41,7 @@ const UserCard = () => {
   return (
     <section className="relative lg:pt-8 w-full animate-fade">
       <div className="flex items-center space-x-4">
-        <div className="h-12 w-12 rounded-full">
+        <div className="h-14 w-14 rounded-full">
           <Link href="/">
             <a title="avatar logo">
               <Image

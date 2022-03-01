@@ -38,17 +38,19 @@ const Layout = ({
       </div>
       <div className="mx-auto max-w-3xl">
         {coverImage && (
-          <Image
-            src={coverImage}
-            alt="Cover Image"
-            layout="responsive"
-            width={800}
-            height={600}
-            className="w-full max-h-92 object-cover rounded-none rounded-b-3xl"
-          />
+          <div className="w-full h-40 overflow-hidden">
+            <Image
+              src={coverImage}
+              alt="Cover Image"
+              layout="responsive"
+              width={800}
+              height={600}
+              className="w-full object-cover rounded-none md:rounded-b-3xl"
+            />
+          </div>
         )}
         <Header />
-        <main className="">
+        <main>
           <div className="post px-6 pt-[230px] pb-20 md:pt-10 lg:px-20">
             <Hero
               h1={h1}

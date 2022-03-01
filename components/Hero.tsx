@@ -19,12 +19,12 @@ const Hero = ({ h1, h2, description, postTitle }: Props) => {
         </h1>
       )}
       {h2 && (
-        <h2 className="mt-4 text-2xl font-medium tracking-tight text-gray-600 md:mt-0 md:text-6xl md:font-black md:text-black dark:md:text-white">
+        <h2 className="mt-4 text-2xl font-medium tracking-tight text-gray-600 dark:text-gray-400 md:mt-0 md:text-6xl md:font-black md:text-black dark:md:text-white">
           {h2}
         </h2>
       )}
       {description && (
-        <p className="mt-4 text-2xl font-medium tracking-tight text-gray-600 md:mt-0 md:text-black md:text-3xl dark:md:text-white">
+        <p className="mt-4 text-2xl font-medium tracking-tight text-gray-600 dark:text-gray-400 md:mt-0 md:text-black md:text-3xl dark:md:text-white">
           {description}
         </p>
       )}

@@ -36,5 +36,5 @@
   "display": "standalone",
   "scope:": "./",
   "description:": "kailoon's personal site & portfolio",
-  "start_url": "https://kailoon-next.vercel.app"
+  "start_url": "https://kailoon.com"
 }
