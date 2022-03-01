@@ -15,10 +15,10 @@ const LatestProjects = () => {
 
   return (
     <div className="rounded-xl border border-gray-200 py-5 px-6 dark:border-gray-800">
-      <h4 className="mb-1 flex items-center space-x-2 text-xs uppercase text-gray-600 dark:text-gray-400">
+      <strong className="mb-1 flex items-center space-x-2 text-xs uppercase text-gray-600 dark:text-gray-400">
         <BriefcaseIcon className="h-4 w-4" />
         <span>Latest Projects</span>
-      </h4>
+      </strong>
       {!isLoading &&
         projects &&
         projects.map(({ title, _id, slug, services }) => (
