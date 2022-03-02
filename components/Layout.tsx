@@ -3,10 +3,11 @@ import Header from './Header'
 import Hero from './Hero'
 import Navbar from './Navbar'
 import Footer from './Footer'
-
 import Logo from './Logo'
 import Link from 'next/link'
 import Image from 'next/image'
+import Banner from './Banner'
+import { useState } from 'react'
 
 interface Props {
   children: React.ReactNode

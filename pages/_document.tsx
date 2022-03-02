@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { GTM_ID } from '../lib/analytic'
+import { GA_TRACKING_ID } from '../lib/analytic'
 
 class MyDocument extends Document {
   render() {
@@ -14,7 +14,7 @@ class MyDocument extends Document {
         <body className="antialiased selection:bg-teal-100 dark:bg-black dark:text-white dark:selection:text-teal-900 dark:selection:bg-yellow-100">
           <noscript>
             <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              src={`https://www.googletagmanager.com/ns.html?id=${GA_TRACKING_ID}`}
               height="0"
               width="0"
               style={{ display: 'none', visibility: 'hidden' }}

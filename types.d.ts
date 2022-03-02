@@ -105,9 +105,13 @@ export interface ImageProps {
 }
 
 declare global {
+  interface Window {
+    gtag: any
+  }
   namespace NodeJS {
     interface ProcessEnv {
       NEXT_PUBLIC_SANITY_PROJECT_ID: string
+
       NODE_ENV: 'development' | 'production'
       PORT?: string
       PWD: string
