@@ -4,7 +4,7 @@ import { SWRConfig } from 'swr'
 import { DefaultSeo } from 'next-seo'
 import { sanity } from '../client'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import * as gtag from '../lib/analytic'
 import Script from 'next/script'
 import CookieConsent, {
@@ -16,6 +16,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 export default function MyApp({ Component, pageProps }: AppProps) {
   const fetcher = (query: string) => sanity.fetch(query)
   const router = useRouter()
+  const [open, setOpen] = useState(true)
 
   // for google analytics
   useEffect(() => {
@@ -35,6 +36,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         ad_storage: 'granted',
         analytics_storage: 'granted',
       })
+      setOpen(false)
     }
   }, [])
 
@@ -77,7 +79,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           `,
         }}
       />
-      {getCookieConsentValue() !== 'true' && (
+      {open && (
         <div className="w-full bg-teal-200 fixed top-0 md:bottom-0 md:top-auto left-0 z-50 text-sm">
           <CookieConsent
             buttonText="Accept"
@@ -194,7 +196,7 @@ function checkConsented() {
   if (!decodedCokkies) {
     return false
   }
-  if (decodedCokkies.substring(14, 18) === 'true') {
+  if (decodedCokkies.substring(14, 18) !== null) {
     return true
   }
   return false
