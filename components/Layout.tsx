@@ -38,14 +38,14 @@ const Layout = ({
       </div>
       <div className="mx-auto max-w-3xl">
         {coverImage && (
-          <div className="w-full h-40 overflow-hidden">
+          <div className="w-full px-0 lg:px-8 h-40 md:h-auto overflow-hidden">
             <Image
               src={coverImage}
               alt="Cover Image"
               layout="responsive"
               width={800}
               height={600}
-              className="w-full object-cover rounded-none md:rounded-b-3xl"
+              className="w-full rounded-none lg:rounded-b-3xl"
             />
           </div>
         )}
