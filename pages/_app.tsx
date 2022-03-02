@@ -48,6 +48,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     Cookies.set('CookieConsent', 'true', {
       expires: 7,
     })
+    setOpen(false)
   }
 
   return (
@@ -85,6 +86,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             buttonText="Accept"
             enableDeclineButton
             onAccept={handleAccept}
+            onDecline={() => setOpen(false)}
             declineButtonText="Decline"
             expires={7}
             style={{
