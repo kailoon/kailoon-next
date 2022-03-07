@@ -3,7 +3,7 @@ import kwesforms from 'kwesforms'
 import { useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 
-const contact = () => {
+const contact = ({ page }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     kwesforms.init()
@@ -92,3 +92,36 @@ const contact = () => {
 }
 
 export default contact
+
+export const getStaticPaths = async () => {
+  const query = groq`*[_type == "page" && title == "Contact"]{slug}`
+  const pages = await sanity.fetch(query)
+  const paths = pages.map((page) => ({
+    params: { slug: page.slug.current },
+  }))
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export const getStaticProps = async ({ params }) => {
+  const { slug = '' } = params
+
+  const page = await sanity.fetch(
+    groq`
+    *[_type == "page" && slug.current == $slug][0]
+  `,
+    {
+      slug,
+    }
+  )
+
+  return {
+    props: {
+      page,
+    },
+    revalidate: 60,
+  }
+}
