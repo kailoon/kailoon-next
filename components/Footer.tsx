@@ -14,11 +14,11 @@ const Footer = () => {
       ,{' '}
       <a
         href="https://tailwindcss.com"
-        title="tailwindcss"
+        title="Tailwindcss"
         target="_blank"
         rel="noreferrer"
       >
-        tailwindcss
+        Tailwindcss
       </a>{' '}
       &amp; hosted on{' '}
       <a

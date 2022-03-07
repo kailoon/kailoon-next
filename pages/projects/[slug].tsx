@@ -3,9 +3,11 @@ import groq from 'groq'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import { sanity, urlFor } from '../../client'
-
 import Layout from '../../components/Layout'
+import OtherProjects from '../../components/OtherProjects'
 import PortableComponent from '../../components/PortableComponent'
+import ProjectMeta from '../../components/ProjectMeta'
+import Testimonial from '../../components/Testimonial'
 import { Project } from '../../types'
 
 const ProjectDetail = ({ project }: { project: Project }) => {
@@ -41,11 +43,18 @@ const ProjectDetail = ({ project }: { project: Project }) => {
           cardType: 'summary_large_image', //twitter:card
         }}
       />
+      {/* project meta */}
+      <ProjectMeta project={project} />
+
+      {/* testimonial */}
+      {project.client && <Testimonial project={project} />}
+
       <article>
         {project.body && (
           <PortableText value={project.body} components={PortableComponent} />
         )}
       </article>
+      <OtherProjects id={project._id} />
     </Layout>
   )
 }
@@ -70,7 +79,29 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const project = await sanity.fetch(
     groq`
-    *[_type == "project" && slug.current == $slug][0]
+    *[_type == "project" && slug.current == $slug][0]{
+      _id,
+      title,
+      description,
+      seoTitle,
+      seoDescription,
+      seoImage,
+      coverImage,
+      body,
+      demoUrl,
+      year,
+      services[] -> {
+        _id,
+        title
+      },
+      technologies,
+      client -> {
+        name,
+        designation,
+        avatar,
+        testimonial
+      }
+    }
   `,
     {
       slug,

@@ -27,7 +27,7 @@ const Layout = ({
   postTitle,
 }: Props) => {
   return (
-    <div className="mx-auto flex max-h-fit max-w-7xl">
+    <div className="mx-auto flex max-h-fit w-full max-w-7xl">
       <div className="flex md:w-20 md:sticky md:top-0 md:left-0 md:border-r md:h-screen md:flex-col md:justify-between dark:border-gray-800">
         <Link href="/">
           <a title="Welcome to my humble site">
@@ -37,7 +37,7 @@ const Layout = ({
         <Navbar />
         <div className="hidden md:flex justify-center items-end h-96 pb-8"></div>
       </div>
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto w-full max-w-2xl">
         {coverImage && (
           <div className="w-full px-0 lg:px-8 h-40 md:h-auto overflow-hidden">
             <Image
@@ -46,6 +46,7 @@ const Layout = ({
               layout="responsive"
               width={800}
               height={600}
+              priority={true}
               className="w-full rounded-none lg:rounded-b-3xl"
             />
           </div>
