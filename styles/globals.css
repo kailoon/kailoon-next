@@ -46,7 +46,7 @@
   }
 
   .arrow {
-    @apply absolute left-5 bottom-full h-0 w-0 border-l-8 border-b-8 border-r-8 border-l-transparent border-b-teal-200 border-r-transparent;
+    @apply absolute left-5 bottom-full h-0 w-0 border-l-8 border-b-8 border-r-8 border-l-transparent border-b-teal-200/90 border-r-transparent;
   }
   img {
     @apply object-cover w-full rounded-lg;
