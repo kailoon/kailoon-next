@@ -7,7 +7,7 @@ import { useProjects } from '../utils/hooks'
 const Skeleton = ({ className }: { className: string }) => {
   return (
     <div className={`flex flex-col space-y-2 animate-pulse ${className}`}>
-      <div className="w-[328px] h-[246px] bg-gray-200 rounded-lg"></div>
+      <div className="max-w-[328px] h-[246px] bg-gray-200 rounded-lg"></div>
       <div className="w-full h-4 bg-gray-200"></div>
       <div className="w-full h-4 bg-gray-200"></div>
       <div className="w-full h-4 bg-gray-200"></div>
