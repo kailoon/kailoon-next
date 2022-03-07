@@ -3,7 +3,7 @@ import kwesforms from 'kwesforms'
 import { useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 
-const contact = ({ page }) => {
+const contact = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     kwesforms.init()
@@ -12,22 +12,13 @@ const contact = ({ page }) => {
   return (
     <Layout h1="Keep in touch" h2="How can I help?">
       <NextSeo
-        title={page.seoTitle}
-        description={page.seoDescription}
+        title="Contact page"
+        description="Get in touch with kailoon"
         canonical="https://kailoon.com/"
         openGraph={{
           url: 'https://kailoon.com/',
-          title: page.seoTitle,
-          description: page.seoDescription,
-          images: [
-            {
-              url: page.seoImage && urlFor(page.seoImage).width(1200).url(),
-              width: 800,
-              height: 600,
-              alt: page.seoTitle,
-              type: 'image/jpeg',
-            },
-          ],
+          title: 'Contact page',
+          description: 'Get in touch with kailoon',
           site_name: 'kailoon.com',
         }}
         twitter={{
@@ -92,36 +83,3 @@ const contact = ({ page }) => {
 }
 
 export default contact
-
-export const getStaticPaths = async () => {
-  const query = groq`*[_type == "page" && title == "Contact"]{slug}`
-  const pages = await sanity.fetch(query)
-  const paths = pages.map((page) => ({
-    params: { slug: page.slug.current },
-  }))
-
-  return {
-    paths,
-    fallback: false,
-  }
-}
-
-export const getStaticProps = async ({ params }) => {
-  const { slug = '' } = params
-
-  const page = await sanity.fetch(
-    groq`
-    *[_type == "page" && slug.current == $slug][0]
-  `,
-    {
-      slug,
-    }
-  )
-
-  return {
-    props: {
-      page,
-    },
-    revalidate: 60,
-  }
-}
