@@ -45,7 +45,7 @@ const LatestProjects = () => {
                   )}
                 </p>
               </div>
-              <ArrowSmRightIcon className="ml-auto h-4 w-4 text-gray-500" />
+              <ArrowSmRightIcon className="ml-auto h-4 w-4 text-gray-500 shrink-0" />
             </a>
           </Link>
         ))}
