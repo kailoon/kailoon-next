@@ -38,7 +38,7 @@
   }
   article a:hover,
   footer a:hover {
-    @apply text-teal-200;
+    @apply dark:text-teal-200 text-red-500;
   }
 
   blockquote {
