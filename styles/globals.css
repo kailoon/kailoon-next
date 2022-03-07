@@ -59,7 +59,7 @@
   select,
   option,
   textarea {
-    @apply border bg-gray-100 border-gray-300 dark:border-gray-800 focus:border-teal-400 focus:outline-none w-full rounded-md;
+    @apply border bg-gray-100 border-gray-300 dark:border-gray-800 focus:border-teal-400 focus:outline-none w-full rounded-md dark:bg-black;
   }
   .kw-field-error-message {
     @apply text-sm;
