@@ -1,9 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "npm run build && next export",
     "lint": "next lint"
   },
   "dependencies": {

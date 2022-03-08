@@ -1,5 +1,10 @@
 import { Project } from '../types'
-import { CalendarIcon, MagicWandIcon, LayersIcon } from '@radix-ui/react-icons'
+import {
+  CalendarIcon,
+  MagicWandIcon,
+  LayersIcon,
+  Link2Icon,
+} from '@radix-ui/react-icons'
 
 const ProjectMeta = ({ project }: { project: Project }) => {
   return (
@@ -39,6 +44,17 @@ const ProjectMeta = ({ project }: { project: Project }) => {
 
         <strong className="text-base text-black dark:text-white ml-6">
           {project.technologies}
+        </strong>
+      </div>
+      <div className="text-gray-600 text-sm dark:text-gray-400 flex-1">
+        <div className="flex items-center space-x-2">
+          <Link2Icon /> <p> Live Site</p>
+        </div>
+
+        <strong className="text-base text-black dark:text-white ml-6">
+          <a className="underline" href={project.demoUrl}>
+            Check out the live product
+          </a>
         </strong>
       </div>
     </div>

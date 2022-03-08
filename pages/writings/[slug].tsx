@@ -3,6 +3,7 @@ import groq from 'groq'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { sanity, urlFor } from '../../client'
 import Layout from '../../components/Layout'
 import PortableComponent from '../../components/PortableComponent'
@@ -91,7 +92,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 

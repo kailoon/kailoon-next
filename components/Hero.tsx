@@ -9,7 +9,7 @@ const Hero = ({ h1, h2, description, postTitle }: Props) => {
   return (
     <div className="pt-8 pb-24">
       {h1 && (
-        <h1 className="text-7xl font-black tracking-tight md:font-serif md:text-2xl md:font-medium md:italic md:tracking-tight md:text-gray-500 dark:md:text-gray-400">
+        <h1 className="text-7xl font-black tracking-tight md:font-serif md:text-2xl md:font-medium md:italic md:tracking-tight md:text-gray-500 dark:md:text-gray-400 hyphens">
           {h1}
         </h1>
       )}

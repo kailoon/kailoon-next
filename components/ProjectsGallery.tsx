@@ -37,7 +37,11 @@ const ProjectsGallery = () => {
             index % 2 === 0 ? 'lg:-mt-24' : ''
           } flex flex-col justify-center items-center`}
         >
-          <Link href={`/projects/${project.slug}`}>
+          <Link
+            href={`/projects/${project.slug}`}
+            as={`/projects/${project.slug}`}
+            passHref
+          >
             <a
               className="block leading-none no-underline text-black font-sans not-italic hover:text-black hover:opacity-75 transition-opacity ease-in-out duration-200 dark:text-white dark:hover:text-teal-200"
               title={project.title}

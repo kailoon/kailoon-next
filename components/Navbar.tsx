@@ -47,7 +47,7 @@ const Navbar = () => {
             </Link>
           )}
 
-          <Link href={slug.current!}>
+          <Link href={`/${slug.current === 'home' ? '' : slug.current}`}>
             <a className="md:hidden">{title}</a>
           </Link>
         </div>

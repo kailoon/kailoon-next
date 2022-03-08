@@ -2,6 +2,7 @@ import { PortableText } from '@portabletext/react'
 import groq from 'groq'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 import { sanity, urlFor } from '../../client'
 import Layout from '../../components/Layout'
 import OtherProjects from '../../components/OtherProjects'
@@ -70,7 +71,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 
