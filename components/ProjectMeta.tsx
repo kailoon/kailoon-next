@@ -46,17 +46,18 @@ const ProjectMeta = ({ project }: { project: Project }) => {
           {project.technologies}
         </strong>
       </div>
-      <div className="text-gray-600 text-sm dark:text-gray-400 flex-1">
-        <div className="flex items-center space-x-2">
-          <Link2Icon /> <p> Live Site</p>
+      {project.demoUrl && (
+        <div className="text-gray-600 text-sm dark:text-gray-400 flex-1">
+          <div className="flex items-center space-x-2">
+            <Link2Icon /> <p> Live Site</p>
+          </div>
+          <strong className="text-base text-black dark:text-white ml-6">
+            <a className="underline" href={project.demoUrl}>
+              Check out the live product
+            </a>
+          </strong>
         </div>
-
-        <strong className="text-base text-black dark:text-white ml-6">
-          <a className="underline" href={project.demoUrl}>
-            Check out the live product
-          </a>
-        </strong>
-      </div>
+      )}
     </div>
   )
 }
