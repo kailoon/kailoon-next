@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/duotone-light.css'
 import type { AppProps } from 'next/app'
 import { SWRConfig } from 'swr'
 import { DefaultSeo } from 'next-seo'

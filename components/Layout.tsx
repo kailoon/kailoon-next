@@ -45,7 +45,7 @@ const Layout = ({
               width={800}
               height={600}
               priority={true}
-              className="w-full rounded-none lg:rounded-b-3xl"
+              className="w-full"
             />
           </div>
         )}
