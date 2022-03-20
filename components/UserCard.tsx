@@ -22,11 +22,10 @@ const UserCard = () => {
       }, 1000)
       return () => clearTimeout(timer)
     } else {
-      // remove localstorage after 24 hours
-      const timer = setTimeout(() => {
+      // remove localstorage after close window
+      window.onunload = () => {
         localStorage.removeItem('user-card-action')
-      }, 1000 * 60 * 60 * 24)
-      // return () => clearTimeout(timer)
+      }
     }
   }, [])
 

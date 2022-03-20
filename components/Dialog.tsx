@@ -1,7 +1,6 @@
 import { PortableText } from '@portabletext/react'
 import { Author } from '../types'
 import { useAuthor } from '../utils/hooks'
-import Spinner from './Spinner'
 
 const Dialog = ({ closeDialog }: { closeDialog: () => void }) => {
   const {
