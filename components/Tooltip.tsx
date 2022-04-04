@@ -1,5 +1,4 @@
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
-import { getDisplayName } from 'next/dist/shared/lib/utils'
 import React from 'react'
 
 interface Props extends TooltipPrimitive.TooltipProps {
@@ -29,12 +28,13 @@ const Tooltip = React.forwardRef(
         onOpenChange={onOpenChange}
         delayDuration={150}
       >
-        <TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Trigger asChild>
           <a
             href={href}
             onClick={onClick}
             ref={ref}
             className="md:hover:underline"
+            title={content}
           >
             {children}
           </a>

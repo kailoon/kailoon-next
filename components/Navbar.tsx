@@ -32,7 +32,7 @@ const Navbar = () => {
               href={`/${slug.current === 'home' ? '' : slug.current}`}
               passHref
             >
-              <Tooltip content={title}>
+              <Tooltip content={title} delayDuration={0}>
                 <div className="hidden md:block">
                   <Image
                     alt={title}
@@ -48,7 +48,9 @@ const Navbar = () => {
           )}
 
           <Link href={`/${slug.current === 'home' ? '' : slug.current}`}>
-            <a className="md:hidden">{title}</a>
+            <a className="md:hidden" title={title}>
+              {title}
+            </a>
           </Link>
         </div>
       ))}

@@ -8,7 +8,10 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import * as gtag from '../lib/analytic'
 import Script from 'next/script'
-import CookieConsent, { Cookies } from 'react-cookie-consent'
+import CookieConsent, {
+  Cookies,
+  getCookieConsentValue,
+} from 'react-cookie-consent'
 const isProduction = process.env.NODE_ENV === 'production'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -56,6 +59,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       }}
     >
       {/* Google Tag Manager - Global base code */}
+
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
