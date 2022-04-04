@@ -12,6 +12,14 @@ class MyDocument extends Document {
           ></link>
         </Head>
         <body className="antialiased selection:bg-teal-100 dark:bg-black dark:text-white dark:selection:text-teal-900 dark:selection:bg-yellow-100">
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GA_TRACKING_ID}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
           <Main />
           <NextScript />
         </body>
