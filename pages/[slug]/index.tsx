@@ -8,7 +8,7 @@ import type { GetStaticPaths, GetStaticProps } from 'next'
 import ProjectsGallery from '../../components/ProjectsGallery'
 import PostsGallery from '../../components/PostsGallery'
 
-const Page = ({ page }: { page: Page }) => {
+const CustomPage = ({ page }: { page: Page }) => {
   return (
     <Layout h1={page.heroTextOne} h2={page.heroTextTwo}>
       <NextSeo
@@ -45,7 +45,7 @@ const Page = ({ page }: { page: Page }) => {
   )
 }
 
-export default Page
+export default CustomPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const query = groq`*[_type == "page" && title != "Contact"]{slug}`
