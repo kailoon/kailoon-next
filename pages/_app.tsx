@@ -12,6 +12,8 @@ import CookieConsent, {
   Cookies,
   getCookieConsentValue,
 } from 'react-cookie-consent'
+import { Analytics } from '@vercel/analytics/react'
+
 const isProduction = process.env.NODE_ENV === 'production'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -184,6 +186,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         ]}
       />
       <Component {...pageProps} />
+      <Analytics />
     </SWRConfig>
   )
 }
